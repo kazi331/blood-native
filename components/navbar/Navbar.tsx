@@ -1,45 +1,14 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
-import { Image, Pressable, StyleSheet, View } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 import Doners from '../../screens/Doners';
 import Home from '../../screens/Home';
 import Notifications from '../../screens/Notifications';
 import Profile from '../../screens/Profile';
 import Settings from '../../screens/Settings';
+import CustomTabButton from './CustomTabButton';
 import TabIcon from './TabIcon';
 
-
-const CustomButton = ({ onPress, children }: { onPress: any, children: React.ReactNode }) => {
-    return <Pressable
-        onPress={onPress}
-        style={{
-            top: -30,
-            justifyContent: 'center',
-            alignItems: 'center',
-            // shadow 
-
-
-        }}
-    >
-        <View style={{
-            width: 60, height: 60,
-            borderRadius: 15,
-            shadowColor: '#7F5DF0',
-            shadowOffset: {
-                width: 0,
-                height: 10,
-            },
-
-            shadowOpacity: 0.5,
-            shadowRadius: 3.5,
-            elevation: 3,
-
-            backgroundColor: '#F04C7B',
-        }}>
-            {children}
-        </View>
-    </Pressable>
-}
 
 export default function Navbar() {
     const Tab = createBottomTabNavigator();
@@ -47,8 +16,10 @@ export default function Navbar() {
         <Tab.Navigator
             initialRouteName='Doners'
             id='navbar'
+            // backBehavior='initialRoute'
             screenOptions={{
-                // headerShown: false,
+
+                headerShown: false,
                 tabBarShowLabel: false,
                 tabBarStyle: [styles.tabBarStyle, styles.shadow],
                 tabBarActiveTintColor: 'red',
@@ -61,6 +32,8 @@ export default function Navbar() {
                 name="Home" component={Home}
                 options={{
                     tabBarIcon: ({ focused }) => <TabIcon focused={focused} icon={require('../../assets/icons/home.png')} />,
+                    tabBarActiveTintColor: '#55aacc',
+
                 }}
             />
             <Tab.Screen
@@ -78,7 +51,7 @@ export default function Navbar() {
                             style={{ height: 30, width: 30, resizeMode: 'contain', tintColor: '#fff' }}
                         />
                     </View>,
-                    tabBarButton: (props) => <CustomButton onPress={() => console.log("console")} {...props} />,
+                    tabBarButton: (props) => <CustomTabButton onPress={() => console.log("console")} {...props} />,
                 }}
             />
             <Tab.Screen
@@ -91,6 +64,8 @@ export default function Navbar() {
                 name="Notifications" component={Notifications}
                 options={{
                     tabBarIcon: ({ focused }) => <TabIcon focused={focused} icon={require('../../assets/icons/notifications.png')} />,
+                    tabBarBadge: 3,
+
                 }}
             />
         </Tab.Navigator>
@@ -101,34 +76,22 @@ const styles = StyleSheet.create({
     tabBarStyle: {
         backgroundColor: 'white',
         position: 'absolute',
-        bottom: 15,
-        left: 20,
-        right: 20,
+        bottom: 12,
+        left: 15,
+        right: 15,
         borderRadius: 15,
-        height: 90,
-
+        height: 80,
     },
 
-    activeBG: {
 
-        backgroundColor: '#DF1B49',
-        backgroundImage: 'linear-gradient(133.87deg, #FF78A9 2.26 %, #DF1B49 106.25 %)',
-
-    },
-    donerTab: {
-        height: 30,
-        width: 30,
-        marginTop: -30,
-        resizeMode: 'contain',
-    },
     shadow: {
-        elevation: 1,
+        elevation: 4,
         shadowColor: 'gray',
         shadowOffset: {
-            width: 0,
+            width: 3,
             height: 10,
         },
-        shadowOpacity: 0,
+        shadowOpacity: 1,
         shadowRadius: 3.5,
     }
 
