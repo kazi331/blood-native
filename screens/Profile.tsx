@@ -1,12 +1,16 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import Header from '../components/common/Header';
+import { colors } from '../components/common/constants';
+import ProfileCard from '../components/profile/ProfileCard';
 
 export default function Profile() {
     return (
-        <LinearGradient colors={['#FF78A9', '#DF1B49']} style={styles.container} >
+        <LinearGradient colors={['#fff', colors.grey]} style={styles.container} >
+            <Header title="Profile" />
             <View style={styles.container}>
-                <Text>Profile</Text>
+                <ProfileCard />
             </View>
         </LinearGradient>
 
@@ -17,5 +21,6 @@ export default function Profile() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-    }
+        padding: 10,
+    },
 });
