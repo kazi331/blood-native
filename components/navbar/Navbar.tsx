@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
-import { Image, StyleSheet, View } from 'react-native';
+import { Image, StyleSheet } from 'react-native';
 import Doners from '../../screens/Doners';
 import Home from '../../screens/Home';
 import Notifications from '../../screens/Notifications';
@@ -14,7 +14,7 @@ export default function Navbar() {
     const Tab = createBottomTabNavigator();
     return (
         <Tab.Navigator
-            initialRouteName='Doners'
+            initialRouteName='Home'
             id='navbar'
             // backBehavior='initialRoute'
             screenOptions={{
@@ -45,13 +45,13 @@ export default function Navbar() {
             <Tab.Screen
                 name="Doners" component={Doners}
                 options={{
-                    tabBarIcon: ({ focused }) => <View >
-                        <Image
-                            source={require('../../assets/icons/blood.png')}
-                            style={{ height: 30, width: 30, resizeMode: 'contain', tintColor: '#fff' }}
-                        />
-                    </View>,
-                    tabBarButton: (props) => <CustomTabButton onPress={() => console.log("console")} {...props} />,
+                    tabBarIcon: ({ focused }) => <Image
+                        source={require('../../assets/icons/blood.png')}
+                        style={{ height: 30, width: 30, resizeMode: 'contain', tintColor: '#fff' }}
+                    />
+                    ,
+                    tabBarButton: (props) => <CustomTabButton  {...props} />,
+
                 }}
             />
             <Tab.Screen
