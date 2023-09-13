@@ -1,9 +1,10 @@
 import React from 'react';
-import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Header from '../components/common/Header';
 import { colors } from '../components/common/constants';
 import ProfileCard from '../components/profile/ProfileCard';
+import ProfileInfo from '../components/profile/ProfileInfo';
 
 export default function Profile() {
     return (
@@ -11,6 +12,7 @@ export default function Profile() {
             <Header title="Profile" />
             <View style={styles.container}>
                 <ProfileCard />
+                <ProfileInfo />
             </View>
         </LinearGradient>
 

@@ -6,7 +6,7 @@ import { colors } from '../common/constants';
 
 export default function ProfileCard() {
     return (
-        <View>
+        <View style={{ marginBottom: 50 }}>
             <ImageBackground source={require('../../assets/images/user2.jpg')} style={styles.profileImage} >
                 <LinearGradient colors={['transparent', colors.profileShade]} style={styles.profileContainer}>
                     <View style={{ marginTop: '40%' }}>
@@ -21,7 +21,7 @@ export default function ProfileCard() {
             <ImageBackground
                 source={require('../../assets/icons/blood2.png')}
                 style={styles.bloodIcon}>
-                <Text style={{ fontSize: 25, color: '#fff', marginTop: 10, fontWeight: 'bold' }}>A+</Text>
+                <Text style={{ fontSize: 20, color: '#fff', marginTop: 10, fontWeight: 'bold' }}>A+</Text>
             </ImageBackground>
         </View>
     )
