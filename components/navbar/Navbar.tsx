@@ -14,7 +14,7 @@ export default function Navbar() {
     const Tab = createBottomTabNavigator();
     return (
         <Tab.Navigator
-            initialRouteName='Home'
+            initialRouteName='Profile'
             id='navbar'
             // backBehavior='initialRoute'
             screenOptions={{

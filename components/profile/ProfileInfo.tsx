@@ -35,10 +35,14 @@ export default function ProfileInfo() {
 const CustomTabBar = ({ navigationState, jumpTo }: any) => {
     return (
         <View style={styles.tabContainer}>
-            <Pressable style={[styles.tab, navigationState.index === 0 && { backgroundColor: colors.redTransparent }]} onPress={() => jumpTo('donations')} >
+            <Pressable
+                style={[styles.tab, navigationState.index === 0 && { backgroundColor: colors.redTransparent }]}
+                onPress={() => jumpTo('donations')}>
                 <Text style={{ ...styles.tabText, color: navigationState.index === 0 ? colors.red : 'gray' }}>DONATIONS</Text>
             </Pressable>
-            <Pressable style={[styles.tab, navigationState.index === 1 && { backgroundColor: colors.redTransparent }]} onPress={() => jumpTo('requests')} >
+            <Pressable
+                style={[styles.tab, navigationState.index === 1 && { backgroundColor: colors.redTransparent }]}
+                onPress={() => jumpTo('requests')}>
                 <Text style={{ ...styles.tabText, color: navigationState.index === 1 ? colors.red : 'gray' }}>REQUESTS</Text>
             </Pressable>
         </View>
@@ -48,7 +52,7 @@ const CustomTabBar = ({ navigationState, jumpTo }: any) => {
 const styles = StyleSheet.create({
     tabContainer: {
         flexDirection: 'row',
-        marginBottom: 10,
+        marginBottom: 20,
     },
     tab: {
         alignItems: 'center',
